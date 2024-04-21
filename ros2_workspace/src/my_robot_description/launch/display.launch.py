@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_path
 import os
 from launch_ros.actions import Node
 def generate_launch_description():
-    urdf_path = os.path.join(get_package_share_path('my_robot_description'),'urdf', 'first_robot.urdf')
+    urdf_path = os.path.join(get_package_share_path('my_robot_description'),'urdf', 'first_robot.urdf.xacro')
     rviz_config_path = os.path.join(get_package_share_path('my_robot_description'),
                                     'rviz', 'conf.rviz')
 
