@@ -1,0 +1,100 @@
+++++++++++++++++++++++++++++++++++++ URDF and TF (TransForms) +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+install the urdf:
+$ sudo apt install ros-humble-urdf-tutorial 
+
+try template:
+$ ros2 launch urdf_tutorial display.launch.py model:=/opt/ros/humble/share/urdf_tutorial/urdf/08-macroed.urdf.xacro
+
+
+install neccasery tools:
+$ sudo apt install ros-humble-tf2-tools
+
+
+
+TRASNFORMATION - translation + rotation
+we're going to use URDF to create transform elements
+
+create .urdf file in your folder, and then install:
+$ sudo apt install ros-humble-urdf-tutorial
+$ ros2 launch urdf_tutorial display.launch.py model:=absolute/path/to/your/urdf/file
+
+usefull link:
+https://wiki.ros.org/urdf/XML/model
+
+--> Broadcast urdf tf and rviz: 
+
+If you want to broadcast the code to tf, run the code and call it:
+$ ros2 run tf2_tools view_frames -o my_robot_frames
+$ ros2 param get /robot_state_publisher robot_description
+
+If we use rqt_graph the /robot_descrition is main topic from URDF that comes
+Here we trying to run Robot Publisher with URDF int Terminal
+First of all, install:
+$ sudo apt instal ros-humble-xacro
+
+and then we run robost_state_publisher:
+$ ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$(xacro <file_of_robot>.urdf)"
+
+To have gui for this publisher you need to install (all those commands have to call from urdf file directory):
+$ sudo apt install ros-humble-joint-state-publisher-gui
+$ ros2 run joint_state_publisher_gui joint_state_publisher_gui
+
+now, on the end we call:
+$ ros2 run rviz2 rviz2
+
+In GUI go on add button, and add RobotModel and TF
+In RobotModel set 'Descrition Topic' at 'robot_description'
+
+
+---> Create a Robot Description Package to Install the URDF 
+
+-- harder way
+
+first create ros2_workspace dir, and nested src dir. Do colcon build. Source it.
+
+Then create package in src dir (better solution is to create dedicated package):
+$ ros2 pkg create my_robot_description
+go to package and do:
+$ rm -r /src /include
+$ mkdir urdf
+
+create/move your .urdf in samename dir
+
+in CMakeList.txt add: 
+> 
+install(
+  DIRECTORY urdf launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+ament_package()
+<
+  
+create lanuch dir next to urdf dir
+
+and create display.launch.xml
+do colcon build and source again.
+And launch the package, do colcon build and launch it:
+$ ros2 launch my_robot_description display.launch.xml 
+
+-- easier way to run .urdf file
+
+see the code from launch.display.py and launch it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
