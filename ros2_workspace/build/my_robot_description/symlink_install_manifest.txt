@@ -1,4 +1,6 @@
+/home/slavkososic/Desktop/MASTER_WORK/URDF/ros2_workspace/install/my_robot_description/share/my_robot_description//urdf/common.properties.xacro
 /home/slavkososic/Desktop/MASTER_WORK/URDF/ros2_workspace/install/my_robot_description/share/my_robot_description//urdf/first_robot.urdf.xacro
+/home/slavkososic/Desktop/MASTER_WORK/URDF/ros2_workspace/install/my_robot_description/share/my_robot_description//urdf/mobile.base.xacro
 /home/slavkososic/Desktop/MASTER_WORK/URDF/ros2_workspace/install/my_robot_description/share/my_robot_description//launch/display.launch.py
 /home/slavkososic/Desktop/MASTER_WORK/URDF/ros2_workspace/install/my_robot_description/share/my_robot_description//launch/display.launch.xml
 /home/slavkososic/Desktop/MASTER_WORK/URDF/ros2_workspace/install/my_robot_description/share/my_robot_description//rviz/conf.rviz
